@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cristian/Documentos/Siste.op1/TP2/main.c
+unistd.h
+-
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+stdbool.h
+-
+metodos.h
+/home/cristian/Documentos/Siste.op1/TP2/metodos.h
+
+/home/cristian/Documentos/Siste.op1/TP2/metodos.h
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+sys/wait.h
+-
+sys/stat.h
+-
+string.h
+-
+dirent.h
+-
+stdbool.h
+-
+fcntl.h
+-
+

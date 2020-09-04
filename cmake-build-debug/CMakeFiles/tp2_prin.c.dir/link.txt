@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/tp2_prin.c.dir/checks.c.o CMakeFiles/tp2_prin.c.dir/parsing.c.o  -o tp2_prin.c 

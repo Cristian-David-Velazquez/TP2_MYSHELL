@@ -1,0 +1,3 @@
+/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/CMakeFiles/TP2.dir
+/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/CMakeFiles/edit_cache.dir
