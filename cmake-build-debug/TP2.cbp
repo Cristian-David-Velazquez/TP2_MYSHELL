@@ -8,86 +8,90 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug"/>
+				<Option working_dir="/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug"/>
+				<Option working_dir="/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="TP2">
-				<Option output="/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/TP2" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 TP2"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="TP2/fast">
-				<Option output="/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/TP2" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 TP2/fast"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug"/>
+				<Option working_dir="/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/cristian/Documentos/Siste.op1/TP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TP2">
+				<Option output="/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/TP2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 TP2"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TP2/fast">
+				<Option output="/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/TP2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 TP2/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/cristian/Documentos/Siste.op1/TP2/main.c">
+		<Unit filename="/home/cristian/CLionProjects/TP2_MYSHELL/main.c">
 			<Option target="TP2"/>
 		</Unit>
-		<Unit filename="/home/cristian/Documentos/Siste.op1/TP2/metodos.c">
+		<Unit filename="/home/cristian/CLionProjects/TP2_MYSHELL/metodos.c">
 			<Option target="TP2"/>
 		</Unit>
-		<Unit filename="/home/cristian/Documentos/Siste.op1/TP2/metodos.h">
+		<Unit filename="/home/cristian/CLionProjects/TP2_MYSHELL/metodos.h">
 			<Option target="TP2"/>
 		</Unit>
-		<Unit filename="/home/cristian/Documentos/Siste.op1/TP2/CMakeLists.txt">
+		<Unit filename="/home/cristian/CLionProjects/TP2_MYSHELL/tests.c">
+			<Option target="TP2"/>
+		</Unit>
+		<Unit filename="/home/cristian/CLionProjects/TP2_MYSHELL/tests.h">
+			<Option target="TP2"/>
+		</Unit>
+		<Unit filename="/home/cristian/CLionProjects/TP2_MYSHELL/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
