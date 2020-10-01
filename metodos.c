@@ -1,7 +1,11 @@
 #include "metodos.h"
 #include <stdbool.h>
 
-
+/**
+ * Lee la cadena ingresada por el usuario y se eliminan los espacios generados por tab
+ * @param comandos es la cadena ingresada por el usuario
+ * @param auxComandos es la cadena donde se guardara los cambios
+ */
 void eliminarTab(char comandos [],char auxComandos[]){
   for (int a = 0; a < strlen (comandos); a++)
     {//elimino tab
@@ -15,7 +19,6 @@ void eliminarTab(char comandos [],char auxComandos[]){
         }
     }
 }
-
 
 /**
  * Lee la cadena ingresada por el teclado, divide la cadena en una serie de tokens y se guardan en
