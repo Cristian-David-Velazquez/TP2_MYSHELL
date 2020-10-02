@@ -5,7 +5,12 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <string.h>
+#include <stdbool.h>
 
-int testRedirect(char *argv[], char nombre[]);
+int buscoComando(char *trims[]);
 
-int testPipe(char *trims[], char *argv1[], char *argv2[]);
+bool background (char *ruta[]);
+
+int testRedirect (char *argv[], char nombre[]);
+
+int testPipe (char *trims[], char *argv1[], char *argv2[]);

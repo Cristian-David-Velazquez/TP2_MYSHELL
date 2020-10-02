@@ -8,19 +8,22 @@
 #include <sys/stat.h>
 #include <string.h>
 #include <dirent.h>
-#include <stdbool.h>
 #include <fcntl.h>
 
-void eliminarTab(char comandos [],char auxComandos[]);
+void eliminarTab (char comandos[], char auxComandos[]);
 
-int parsear(char *palabras[], char *cadena);
+int parsear (char *palabras[], char *cadena);
 
-bool background(char *ruta[]);
+void funcionCD (char *trims[], int cantPalabras);
 
-void searchFile(char *arch, char *paths[], char *invocationPath);
+void funcionEcho (pid_t pid, char *trims[], int cantPalabras);
 
-void clear(void);
+void funcionSalir ();
 
-void outPut(char Path[]);
+void searchFile (char *arch, char *paths[], char *invocationPath);
+
+void clear (void);
+
+void imprimirTexto (int cantPalabras, char *trims[]);
 
 #endif //TP2_METODOS_H

@@ -3,10 +3,14 @@
 
 CMakeFiles/TP2.dir/main.c.o: ../main.c
 CMakeFiles/TP2.dir/main.c.o: ../metodos.h
+CMakeFiles/TP2.dir/main.c.o: ../redirect.h
 CMakeFiles/TP2.dir/main.c.o: ../tests.h
 
 CMakeFiles/TP2.dir/metodos.c.o: ../metodos.c
 CMakeFiles/TP2.dir/metodos.c.o: ../metodos.h
+
+CMakeFiles/TP2.dir/redirect.c.o: ../redirect.c
+CMakeFiles/TP2.dir/redirect.c.o: ../redirect.h
 
 CMakeFiles/TP2.dir/tests.c.o: ../tests.c
 CMakeFiles/TP2.dir/tests.c.o: ../tests.h

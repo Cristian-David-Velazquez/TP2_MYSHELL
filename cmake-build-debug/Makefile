@@ -197,6 +197,33 @@ metodos.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP2.dir/build.make CMakeFiles/TP2.dir/metodos.c.s
 .PHONY : metodos.c.s
 
+redirect.o: redirect.c.o
+
+.PHONY : redirect.o
+
+# target to build an object file
+redirect.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP2.dir/build.make CMakeFiles/TP2.dir/redirect.c.o
+.PHONY : redirect.c.o
+
+redirect.i: redirect.c.i
+
+.PHONY : redirect.i
+
+# target to preprocess a source file
+redirect.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP2.dir/build.make CMakeFiles/TP2.dir/redirect.c.i
+.PHONY : redirect.c.i
+
+redirect.s: redirect.c.s
+
+.PHONY : redirect.s
+
+# target to generate assembly for a file
+redirect.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TP2.dir/build.make CMakeFiles/TP2.dir/redirect.c.s
+.PHONY : redirect.c.s
+
 tests.o: tests.c.o
 
 .PHONY : tests.o
@@ -239,6 +266,9 @@ help:
 	@echo "... metodos.o"
 	@echo "... metodos.i"
 	@echo "... metodos.s"
+	@echo "... redirect.o"
+	@echo "... redirect.i"
+	@echo "... redirect.s"
 	@echo "... tests.o"
 	@echo "... tests.i"
 	@echo "... tests.s"

@@ -85,6 +85,12 @@
 		<Unit filename="/home/cristian/CLionProjects/TP2_MYSHELL/metodos.h">
 			<Option target="TP2"/>
 		</Unit>
+		<Unit filename="/home/cristian/CLionProjects/TP2_MYSHELL/redirect.c">
+			<Option target="TP2"/>
+		</Unit>
+		<Unit filename="/home/cristian/CLionProjects/TP2_MYSHELL/redirect.h">
+			<Option target="TP2"/>
+		</Unit>
 		<Unit filename="/home/cristian/CLionProjects/TP2_MYSHELL/tests.c">
 			<Option target="TP2"/>
 		</Unit>

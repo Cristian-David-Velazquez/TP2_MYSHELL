@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/home/cristian/CLionProjects/TP2_MYSHELL/main.c" "/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/CMakeFiles/TP2.dir/main.c.o"
   "/home/cristian/CLionProjects/TP2_MYSHELL/metodos.c" "/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/CMakeFiles/TP2.dir/metodos.c.o"
+  "/home/cristian/CLionProjects/TP2_MYSHELL/redirect.c" "/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/CMakeFiles/TP2.dir/redirect.c.o"
   "/home/cristian/CLionProjects/TP2_MYSHELL/tests.c" "/home/cristian/CLionProjects/TP2_MYSHELL/cmake-build-debug/CMakeFiles/TP2.dir/tests.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

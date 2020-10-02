@@ -1,6 +1,65 @@
 #include "tests.h"
 
 /**
+ *Verifico que comando es y retorno un numero para identificarlo
+ * @param trims son las palabras que ingreso el usuario
+ * @return 0 para el caso que no coincida con ningun comando y de 1 a 4 cuando conincide
+ */
+int buscoComando (char *trims[])
+{
+  int num = 0;
+  if (!strcmp (trims[0], "cd"))
+    {
+      num = 1;
+    }
+  if (!strcmp (trims[0], "clr"))
+    {
+      num = 2;
+    }
+  if (!strcmp (trims[0], "echo"))
+    {
+      num = 3;
+    }
+  if (!strcmp (trims[0], "quit"))
+    {
+      num = 4;
+    }
+  return num;
+}
+
+/**
+ * Se comparara la ultima cadena para verificar si se lanzo el comando "&" para background.
+ * @param ruta es un array que contiene el path ingresado por el usuario.
+ * @return Devuelve un booleano true si debe ejecutarse en background, y false en caso contrario.
+ */
+bool background (char *ruta[])
+{
+  int i = 0, j;
+  bool boolBackground = false;
+  char *aux;
+  //Recorro porque es un puntero y me desplazo a la ultima posicion
+  for (j = 0; j < 30; j++)
+    {
+      if (ruta[j] == NULL)
+        break;
+    }
+  aux = ruta[j - 1];
+
+  while (i != strlen (aux))
+    {// Detecto & parseado con espacio
+      // strcpy(aux,ultimaPalabra[i]);
+      if (!strcmp (aux, "&"))
+        {
+          boolBackground = true;
+          break;
+        }
+      i++;
+    }
+  return boolBackground;
+
+}
+
+/**
  * Testeo si debe redireccionar la entrada o la salida estandar y se guarda la direccion con el nombre del archivo en caso positivo.
  * @param trims Cadena que contiene la linea de comando/s
  * @param nombre Almacena la direccion y el nombre del archivo

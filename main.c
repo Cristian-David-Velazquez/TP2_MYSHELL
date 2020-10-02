@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include "metodos.h"
 #include "tests.h"
+#include "redirect.h"
 
 #define BUFFER 256
 #define SIZE 30
@@ -13,15 +14,13 @@
 /* Declaración de funciones */
 int getPath (char *paths[]);
 void HandlerSingal (int32_t signum);
-void imprimirTexto (int cantPalabras, char *trims[]);
-void pipeline (char *argv1[], char *argv2[], char *paths[]);
-
+void pipeline (char *comando1[], char *comando2[], char *paths[]);
 /* Variables globales */
-char *tab = " \t";
 int cantPalabras;
 
 int main (int argc, char *argv[])
 {
+  int numComando;
   char comandos[BUFFER];
   char auxComandos[BUFFER];
   char hostname[SIZE], usuario[SIZE];
@@ -93,7 +92,7 @@ int main (int argc, char *argv[])
         }
       memset (auxComandos, '\0', BUFFER);
 
-      eliminarTab(comandos,auxComandos);
+      eliminarTab (comandos, auxComandos);
 
       cantPalabras = parsear (trims, auxComandos);
 
@@ -126,62 +125,32 @@ int main (int argc, char *argv[])
               printf ("PROCESO child %d\n", pidHijo);
             }
         }
-
       if (flagHijo == 0 || pid == 0)
         {
-          if (!strcmp (trims[0], "cd"))
-            {//si esta vacio no hace nada se queda en el mismo path
-              comandoInterno = 1;
-              if (cantPalabras > 1)
+          if (flagRedirect == 0)
+            {//Si no hay un redireccion
+              numComando = buscoComando (trims);
+              switch (numComando)
                 {
-                  if ((chdir (trims[1])) != 0)
-                    {
-                      printf ("\nNo existe la ruta ingresada, NO SUCH FILE OR DIRECTORY \n");
-                    }
+                  case 1:
+                    funcionCD (trims, cantPalabras);
+                    comandoInterno = 1;
+                    break;
+                  case 2:
+                    clear ();
+                    comandoInterno = 1;
+                    break;
+                  case 3:
+                    comandoInterno=1;
+                    funcionEcho (pid,trims,cantPalabras);
+                    break;
+                  case 4:
+                    funcionSalir ();
+                    comandoInterno = 1;
+                    return 0;
+                  default:
+                    comandoInterno = 0;
                 }
-              else printf (" ");
-            }
-          else if (!strcmp (trims[0], "clr"))
-            {
-              comandoInterno = 1;
-              clear ();
-              //execlp("clear",NULL,NULL); //
-            }
-          else if (!strcmp (trims[0], "echo") && flagRedirect != 2 && flagRedirect != 1)
-            {
-              comandoInterno = 1;
-              if (pid == 0 && strcmp (trims[1], "program"))
-                {//Solo entra el hijo
-                  char *argVhijo[60];
-                  argVhijo[0] = "/bin/echo";
-                  printf ("%s", argVhijo[0]);
-                  for (int i = 1; i < cantPalabras; i++)
-                    {
-                      argVhijo[i] = trims[i];
-                      printf ("%s", argVhijo[i]);
-                    }
-                  argVhijo[cantPalabras - 1] = NULL;
-
-                  if (execv (argVhijo[0], argVhijo) < 0)
-                    {
-                      perror ("execv error");
-                    }
-                  exit (1);
-                }
-              if (cantPalabras > 1)
-                {//si echo esta vacio no entra
-                  if (pid != 0)
-                    {// Solo si es el padre
-                      imprimirTexto (cantPalabras, trims);
-                    }
-                }
-              else printf ("\n");
-            }
-          else if (!strcmp (trims[0], "quit"))
-            {
-              printf ("---------------------------------------------------------------------\n");
-              printf ("QUIT MYSHELL\n");
-              return 0;
             }
           searchFile (trims[0], paths, invocationPath);
           if (invocationPath[0] == 'X' && comandoInterno == 0)
@@ -216,9 +185,7 @@ int main (int argc, char *argv[])
                       perror (invocationPath);
                       exit (1);
                     }
-
                 }
-
             }
 
           if (pid == 0)
@@ -253,20 +220,6 @@ int getPath (char *paths[])
 
   strtok (NULL, ":");
   return counter + 1;
-}
-
-/**
- * Se imprime en pantalla lo que ingreso el usuario al escribir el comando echo, solo es utilizado por el proceso padre
- * @param cantPalabras Contiene el numero de palabras obtenidas en el paseado por espacios.
- * @param trims Puntero de cada palabra ingresada por el usuario.
- */
-void imprimirTexto (int cantPalabras, char *trims[])
-{
-  for (int i = 1; i < cantPalabras; i++)
-    {
-      printf ("%s ", strtok (trims[i], tab));
-    }
-  printf ("\n");
 }
 
 /**

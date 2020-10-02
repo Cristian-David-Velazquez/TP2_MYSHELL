@@ -4,10 +4,14 @@
 CMakeFiles/TP2.dir/main.c.o
  /home/cristian/CLionProjects/TP2_MYSHELL/main.c
  /home/cristian/CLionProjects/TP2_MYSHELL/metodos.h
+ /home/cristian/CLionProjects/TP2_MYSHELL/redirect.h
  /home/cristian/CLionProjects/TP2_MYSHELL/tests.h
 CMakeFiles/TP2.dir/metodos.c.o
  /home/cristian/CLionProjects/TP2_MYSHELL/metodos.c
  /home/cristian/CLionProjects/TP2_MYSHELL/metodos.h
+CMakeFiles/TP2.dir/redirect.c.o
+ /home/cristian/CLionProjects/TP2_MYSHELL/redirect.c
+ /home/cristian/CLionProjects/TP2_MYSHELL/redirect.h
 CMakeFiles/TP2.dir/tests.c.o
  /home/cristian/CLionProjects/TP2_MYSHELL/tests.c
  /home/cristian/CLionProjects/TP2_MYSHELL/tests.h

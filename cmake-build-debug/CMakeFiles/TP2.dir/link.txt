@@ -1,1 +1,1 @@
-/usr/bin/cc  -Wall -pedantic -g   CMakeFiles/TP2.dir/main.c.o CMakeFiles/TP2.dir/metodos.c.o CMakeFiles/TP2.dir/tests.c.o  -o TP2 
+/usr/bin/cc  -Wall -pedantic -g   CMakeFiles/TP2.dir/main.c.o CMakeFiles/TP2.dir/metodos.c.o CMakeFiles/TP2.dir/tests.c.o CMakeFiles/TP2.dir/redirect.c.o  -o TP2 

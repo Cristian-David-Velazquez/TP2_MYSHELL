@@ -6,7 +6,8 @@
  * @param comandos es la cadena ingresada por el usuario
  * @param auxComandos es la cadena donde se guardara los cambios
  */
-void eliminarTab(char comandos [],char auxComandos[]){
+void eliminarTab (char comandos[], char auxComandos[])
+{
   for (int a = 0; a < strlen (comandos); a++)
     {//elimino tab
       if (comandos[a] != '\t')
@@ -43,35 +44,67 @@ int parsear (char *palabras[], char *cadena)
 }
 
 /**
- * Se comparara la ultima cadena para verificar si se lanzo el comando "&" para background.
- * @param ruta es un array que contiene el path ingresado por el usuario.
- * @return Devuelve un booleano true si debe ejecutarse en background, y false en caso contrario.
+ * Esta funcion es para desplazarnos entre directorios
+ * En el caso que no se indique la direccion, se queda en el mismoo path
+ * @param trims Arreglo de punteros a los argumentos obtenidos.
+ * @param cantPalabras es el numero de trims obtenidos
  */
-bool background (char *ruta[])
+void funcionCD (char *trims[], int cantPalabras)
 {
-  int i = 0, j;
-  bool boolBackground = false;
-  char *aux;
-  //Recorro porque es un puntero y me desplazo a la ultima posicion
-  for (j = 0; j < 30; j++)
+  if (cantPalabras > 1)
     {
-      if (ruta[j] == NULL)
-        break;
-    }
-  aux = ruta[j - 1];
-
-  while (i != strlen (aux))
-    {// Detecto & parseado con espacio
-      // strcpy(aux,ultimaPalabra[i]);
-      if (!strcmp (aux, "&"))
+      if ((chdir (trims[1])) != 0)
         {
-          boolBackground = true;
-          break;
+          printf ("\nNo existe la ruta ingresada, NO SUCH FILE OR DIRECTORY \n");
         }
-      i++;
     }
-  return boolBackground;
+  else printf (" ");
+}
+/**
+ * Proceso para imprmir en pantalla el texto que viene luego del comando echo
+ * @param pid id del proceso padre o hijo
+ * @param trims arreglo de punteros a los argumentos obtenidos.
+ * @param cantPalabras numero de trims
+ */
 
+void funcionEcho (pid_t pid, char *trims[], int cantPalabras)
+{
+  if (pid == 0)
+    {//Solo entra el hijo
+      char *argVhijo[60];
+      argVhijo[0] = "/bin/echo";
+      printf ("%s", argVhijo[0]);
+      for (int i = 1; i < cantPalabras; i++)
+        {
+          argVhijo[i] = trims[i];
+          printf ("%s", argVhijo[i]);
+        }
+      argVhijo[cantPalabras - 1] = NULL;
+
+      if (execv (argVhijo[0], argVhijo) < 0)
+        {
+          perror ("execv error");
+        }
+      exit (1);
+    }
+  if (cantPalabras > 1)
+    {//si echo esta vacio no entra
+      if (pid != 0)
+        {// Solo si es el padre
+          imprimirTexto (cantPalabras, trims);
+        }
+    }
+  else printf ("\n");
+}
+
+/**
+ * Cuando se recibe el comando quit, se llama a esta funcion
+ * para terminar imprimir un mensaje
+ */
+void funcionSalir ()
+{
+  printf ("---------------------------------------------------------------------\n");
+  printf ("QUIT MYSHELL\n");
 }
 
 /**
@@ -170,25 +203,16 @@ void clear (void)
 }
 
 /**
- * La salida estándar para el comando echo se redigire a una dirección ingresada por el usuario.
- * @param Path dirección del archivo donde se envía la salida.
+ * Se imprime en pantalla lo que ingreso el usuario al escribir el comando echo, solo es utilizado por el proceso padre
+ * @param cantPalabras Contiene el numero de palabras obtenidas en el paseado por espacios.
+ * @param trims Puntero de cada palabra ingresada por el usuario.
  */
-void outPut (char Path[])
+void imprimirTexto (int cantPalabras, char *trims[])
 {
-  int file;
-  file = open (Path,
-               O_WRONLY | O_CREAT | O_TRUNC,
-               S_IWUSR | S_IRUSR);//abro para escribir, si no existe lo creo y  le doy permisos
-  if (file < 0)
+  char *tab = " \t";
+  for (int i = 1; i < cantPalabras; i++)
     {
-      perror ("Cannot open output file\n");
-      exit (1);
+      printf ("%s ", strtok (trims[i], tab));
     }
-  close (STDOUT_FILENO);
-  if (dup (file) < 0)
-    {//la salida STDOUT ahora apunta al archivo
-      perror ("Error dup");
-      exit (1);
-    }
-  close (file);
+  printf ("\n");
 }
