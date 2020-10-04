@@ -8,7 +8,7 @@
  */
 void eliminarTab (char comandos[], char auxComandos[])
 {
-  for (int a = 0; a < strlen (comandos); a++)
+  for (int a = 0; a < (int) strlen (comandos); a++)
     {//elimino tab
       if (comandos[a] != '\t')
         {

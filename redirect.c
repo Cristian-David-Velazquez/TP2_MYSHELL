@@ -1,7 +1,34 @@
 #include "redirect.h"
 
 /**
- * La salida estándar para el comando echo se redigire a una dirección ingresada por el usuario.
+ * Cambia la dirección de entrada de la consola a la direccion del archivo
+ * @param Path direccion donde se leera los posibles comandos
+ */
+void input (char Path[])
+{
+  int file, flags, permisos;
+
+  flags = O_RDONLY;
+  permisos = S_IWUSR|S_IRUSR;
+
+  file = open(Path,flags,permisos);
+
+  if (file < 0)
+    {
+      perror("Cannot open output file\n");
+      exit(EXIT_FAILURE);
+    }
+  close(STDIN_FILENO);
+  if (dup (file) < 0) //cambie la entrada
+    {
+      perror ("Error dup");
+      exit (EXIT_FAILURE);
+    }
+  close(file);
+}
+
+/**
+ * La salida estándar se redigire a una dirección ingresada por el usuario.
  * @param Path dirección del archivo donde se envía la salida.
  */
 void outPut (char Path[])
@@ -13,13 +40,13 @@ void outPut (char Path[])
   if (file < 0)
     {
       perror ("Cannot open output file\n");
-      exit (1);
+      exit (EXIT_FAILURE);
     }
   close (STDOUT_FILENO);
   if (dup (file) < 0)
     {//la salida STDOUT ahora apunta al archivo
       perror ("Error dup");
-      exit (1);
+      exit (EXIT_FAILURE);
     }
   close (file);
 }

@@ -134,20 +134,20 @@ int main (int argc, char *argv[])
                 {
                   case 1:
                     funcionCD (trims, cantPalabras);
-                    comandoInterno = 1;
-                    break;
+                  comandoInterno = 1;
+                  break;
                   case 2:
                     clear ();
-                    comandoInterno = 1;
-                    break;
+                  comandoInterno = 1;
+                  break;
                   case 3:
-                    comandoInterno=1;
-                    funcionEcho (pid,trims,cantPalabras);
-                    break;
+                    comandoInterno = 1;
+                  funcionEcho (pid, trims, cantPalabras);
+                  break;
                   case 4:
                     funcionSalir ();
-                    comandoInterno = 1;
-                    return 0;
+                  comandoInterno = 1;
+                  return 0;
                   default:
                     comandoInterno = 0;
                 }
@@ -172,7 +172,7 @@ int main (int argc, char *argv[])
                     }
                   else if (flagRedirect == 1)
                     {
-                      freopen (fileName, "r", stdin);
+                      input (fileName);
                     }
                   else if (pipe == 1)
                     {

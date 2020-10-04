@@ -1,3 +1,6 @@
+#ifndef TP2_TESTS_H
+#define TP2_TESTS_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -14,3 +17,5 @@ bool background (char *ruta[]);
 int testRedirect (char *argv[], char nombre[]);
 
 int testPipe (char *trims[], char *argv1[], char *argv2[]);
+
+#endif

@@ -1,23 +1,19 @@
-CFLAGS = -c -Wall -pedantic
+CFLAGS = -Wall -pedantic -Werror -Wextra -Wconversion
 
 myshell: main.o metodos.o tests.o redirect.o
-	gcc -o myshell main.o metodos.o tests.o redirect.o
+	gcc $(CFLAGS) -o myshell main.o metodos.o tests.o redirect.o
 
 main.o: main.c metodos.h
-	#cppcheck main.c
-	gcc $(CFLAGS) main.c
+	gcc $(CFLAGS) -c main.c
 
 metodos.o: metodos.c metodos.h
-	#cppcheck metodos.c
-	gcc $(CFLAGS) metodos.c
+	gcc $(CFLAGS) -c metodos.c
 
 tests.o: tests.c tests.h
-    #cppcheck tests.c
-	gcc $(CFLAGS) tests.c
+	gcc $(CFLAGS) -c tests.c
 
 redirect.o: redirect.c redirect.h
-    #cppcheck redirect.c
-	gcc $(CFLAGS) redirect.c
+	gcc $(CFLAGS) -c redirect.c
 
 clean:
 	rm -f myshell *.o

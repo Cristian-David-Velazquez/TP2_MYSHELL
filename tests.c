@@ -45,7 +45,7 @@ bool background (char *ruta[])
     }
   aux = ruta[j - 1];
 
-  while (i != strlen (aux))
+  while (i != (int) strlen (aux))
     {// Detecto & parseado con espacio
       // strcpy(aux,ultimaPalabra[i]);
       if (!strcmp (aux, "&"))
