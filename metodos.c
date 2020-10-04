@@ -2,6 +2,28 @@
 #include <stdbool.h>
 
 /**
+ * Encuentra los Paths de la variable de entorno PATH, y guarda uno por cada elemento del arreglo paths.
+ * @param paths Arreglo de punteros a caracter donde se almacena cada path.
+ * @return Cantidad de dirreciones encontradas.
+ */
+int getPath (char *paths[])
+{//Usado para invocar un programa
+  int counter;
+  char *variablePAH = getenv ("PATH");
+
+  paths[0] = strtok (variablePAH, ":");
+  for (counter = 1; counter < 20; counter++)
+    {
+      paths[counter] = strtok (NULL, ":");
+      if (paths[counter] == NULL)
+        break;
+    }
+
+  strtok (NULL, ":");
+  return counter + 1;
+}
+
+/**
  * Lee la cadena ingresada por el usuario y se eliminan los espacios generados por tab
  * @param comandos es la cadena ingresada por el usuario
  * @param auxComandos es la cadena donde se guardara los cambios
@@ -215,4 +237,45 @@ void imprimirTexto (int cantPalabras, char *trims[])
       printf ("%s ", strtok (trims[i], tab));
     }
   printf ("\n");
+}
+
+/**
+ * Se uitliza el pipe para la comunuciacion de los procesos al ejecutar los comandos
+ * @param comando1 Argumentos del primer comando.
+ * @param comando2 Argumentos del segundo comando.
+ * @param paths Es la direccion donde voy a ejecutar los comandos
+ */
+void pipeline (char *comando1[], char *comando2[], char *paths[])
+{
+  char invocationPath[30];
+  int fd[2];
+  pipe (fd);
+  if (fork () == 0)
+    { //Hijo
+      close (fd[0]);
+      if (dup2 (fd[1], 1) < 0)
+        {// Se hace una redireccion de la salida al pipe.
+          printf ("No se puede duplicar el descriptor de archivo.");
+          exit (EXIT_FAILURE);
+        }
+      close (fd[1]);
+      searchFile (comando1[0], paths, invocationPath);
+      execv (invocationPath, comando1);
+      perror (invocationPath);
+      exit (1);
+    }
+  else
+    {
+      close (fd[1]); //Padre
+      if (dup2 (fd[0], 0))
+        {//redirrecion de la entrada al pipe
+          printf ("No se puede duplicar el descriptor de archivo.");
+          exit (EXIT_FAILURE);
+        }
+      close (fd[0]);
+      searchFile (comando2[0], paths, invocationPath);
+      execv (invocationPath, comando2);
+      perror (invocationPath);
+      exit (1);
+    }
 }

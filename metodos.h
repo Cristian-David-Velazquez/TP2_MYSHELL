@@ -10,6 +10,8 @@
 #include <dirent.h>
 #include <fcntl.h>
 
+int getPath (char *paths[]);
+
 void eliminarTab (char comandos[], char auxComandos[]);
 
 int parsear (char *palabras[], char *cadena);
@@ -25,5 +27,7 @@ void searchFile (char *arch, char *paths[], char *invocationPath);
 void clear (void);
 
 void imprimirTexto (int cantPalabras, char *trims[]);
+
+void pipeline (char *comando1[], char *comando2[], char *paths[]);
 
 #endif //TP2_METODOS_H

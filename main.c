@@ -12,22 +12,16 @@
 #define SIZE2 20
 
 /* Declaración de funciones */
-int getPath (char *paths[]);
 void HandlerSingal (int32_t signum);
-void pipeline (char *comando1[], char *comando2[], char *paths[]);
 /* Variables globales */
 int cantPalabras;
 
 int main (int argc, char *argv[])
 {
   int numComando;
-  char comandos[BUFFER];
-  char auxComandos[BUFFER];
-  char hostname[SIZE], usuario[SIZE];
+  char comandos[BUFFER], auxComandos[BUFFER], hostname[SIZE], usuario[SIZE];
   char invocationPath[BUFFER];  //Path del proceso que se va a ejecutar.
-  char *paths[SIZE2];
-  char *trims[SIZE2];
-  char *argv1[SIZE2], *argv2[SIZE2];
+  char *paths[SIZE2], *trims[SIZE2], *argv1[SIZE2], *argv2[SIZE2];
   int pipe, esPipe, pidHijo, flagRedirect;
   int batchfile = 0;
   int sigAction = 0;
@@ -200,68 +194,6 @@ int main (int argc, char *argv[])
     }
 }
 
-/**
- * Encuentra los Paths de la variable de entorno PATH, y guarda uno por cada elemento del arreglo paths.
- * @param paths Arreglo de punteros a caracter donde se almacena cada path.
- * @return Cantidad de dirreciones encontradas.
- */
-int getPath (char *paths[])
-{//Usado para invocar un programa
-  int counter;
-  char *variablePAH = getenv ("PATH");
-
-  paths[0] = strtok (variablePAH, ":");
-  for (counter = 1; counter < SIZE2; counter++)
-    {
-      paths[counter] = strtok (NULL, ":");
-      if (paths[counter] == NULL)
-        break;
-    }
-
-  strtok (NULL, ":");
-  return counter + 1;
-}
-
-/**
- * Se uitliza el pipe para la comunuciacion de los procesos al ejecutar los comandos
- * @param comando1 Argumentos del primer comando.
- * @param comando2 Argumentos del segundo comando.
- * @param paths Es la direccion donde voy a ejecutar los comandos
- */
-void pipeline (char *comando1[], char *comando2[], char *paths[])
-{
-  char invocationPath[SIZE];
-  int fd[2];
-  pipe (fd);
-  if (fork () == 0)
-    { //Hijo
-      close (fd[0]);
-      if (dup2 (fd[1], 1) < 0)
-        {// Se hace una redireccion de la salida al pipe.
-          printf ("No se puede duplicar el descriptor de archivo.");
-          exit (EXIT_FAILURE);
-        }
-      close (fd[1]);
-      searchFile (comando1[0], paths, invocationPath);
-      execv (invocationPath, comando1);
-      perror (invocationPath);
-      exit (1);
-    }
-  else
-    {
-      close (fd[1]); //Padre
-      if (dup2 (fd[0], 0))
-        {//redirrecion de la entrada al pipe
-          printf ("No se puede duplicar el descriptor de archivo.");
-          exit (EXIT_FAILURE);
-        }
-      close (fd[0]);
-      searchFile (comando2[0], paths, invocationPath);
-      execv (invocationPath, comando2);
-      perror (invocationPath);
-      exit (1);
-    }
-}
 void HandlerSingal (int32_t signum)
 {
   fprintf (stderr, "\nSe cierra myshell, Recibi Ctrl-C (%d)\n", signum);
