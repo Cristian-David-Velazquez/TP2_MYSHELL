@@ -24,6 +24,7 @@ int main (int argc, char *argv[])
   char *paths[SIZE2], *trims[SIZE2], *argv1[SIZE2], *argv2[SIZE2];
   int pipe, esPipe, pidHijo, flagRedirect;
   int batchfile = 0;
+  int pos = 0;
   int sigAction = 0;
   int comandoInterno;//Cambio solo si se encuentra un comando interno
   pid_t pid;
@@ -63,7 +64,6 @@ int main (int argc, char *argv[])
           exit (EXIT_FAILURE);
         }
     }
-
   while (1)
     {
       /*Limpio banderas*/
@@ -81,8 +81,27 @@ int main (int argc, char *argv[])
         }
       else
         {
-          strcpy (comandos, "./batch.sh");
-          batchfile = 0;
+          char linea[256];
+          FILE *file;
+          //fich = fopen(argv[1], "r");
+          file = fopen (argv[1], "r");
+          if (file == NULL)
+            {
+              perror ("Cannot open output file\n");
+              exit (EXIT_FAILURE);
+            }
+          fseek (file, pos, SEEK_SET);
+          if ((fgets (linea, 256, (FILE *) file)) != NULL)
+            {
+              pos = (int) ftell (file); // Posición del puntero luego de leer
+              strcpy (comandos, linea);
+            }
+          else
+            {
+              fclose (file);
+              strcpy (comandos, "quit");
+            }
+
         }
       memset (auxComandos, '\0', BUFFER);
 
