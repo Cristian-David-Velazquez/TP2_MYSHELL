@@ -1,0 +1,10 @@
+echo "Here is an example of a shell script"
+echo ""
+ps -a | sort
+ls | more
+echo ejecuto una prueba de direccionamiento
+echo hola voy a crear un txt > ../textoPrueba.txt
+echo test terminado
+
+echo "Right, I'm all done.  Bye bye."
+
