@@ -1,10 +1,13 @@
 echo "Here is an example of a shell script"
 echo ""
+echo ejecuto comando ps -a | sort
 ps -a | sort
+echo ejecuto comando ls | more
 ls | more
+echo ejecuto comando last cristian | wc -l
+last cristian | wc -l
 echo ejecuto una prueba de direccionamiento
-echo hola voy a crear un txt > ../textoPrueba.txt
+echo hola voy a crear un txt para escribir en el > ../textoPrueba.txt
 echo test terminado
 
 echo "Right, I'm all done.  Bye bye."
-
